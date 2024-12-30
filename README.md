@@ -1,4 +1,4 @@
-<h2 align="left">My name is Aifert Yet and I'm a Software Engineer from Perth, Western Australia</h2>
+<h2 align="left">I'm a Software Engineer from Perth, Western Australia</h2>
 
 ###
 
