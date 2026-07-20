@@ -1,9 +1,5 @@
 <h3 align="left">Software Engineer based in Perth, Western Australia 🇦🇺</h3>
 
-<p align="left">
-  Building and scaling backend systems • AWS | Python | TypeScript
-</p>
-
 ###
 
 <div align="center">
