@@ -109,8 +109,25 @@ def test_login_seed_photos(client: TestClient) -> None:
 
 def test_today_countdown(client: TestClient) -> None:
     client.post("/api/login", json={"password": "CONQUERTHEWORLD"})
-    res = client.get("/api/today?now=2026-10-01T00:00:00+08:00")
+    res = client.get(
+        "/api/today",
+        params={"now": "2026-10-01T00:00:00+08:00"},
+    )
     assert res.status_code == 200
     body = res.json()
     assert body["phase"] == "countdown"
     assert body["countdown_seconds"] > 0
+
+    tokyo = client.get(
+        "/api/today",
+        params={"now": "2026-11-12T10:00:00+09:00"},
+    )
+    assert tokyo.status_code == 200
+    assert tokyo.json()["phase"] == "on_trip"
+    assert tokyo.json()["stop"]["slug"] == "tokyo"
+
+    home = client.get(
+        "/api/today",
+        params={"now": "2027-02-01T00:00:00+08:00"},
+    )
+    assert home.json()["phase"] == "back_home"

@@ -279,7 +279,7 @@ def _parse_now(raw: Optional[str]) -> datetime:
     if not raw:
         return datetime.now(timezone.utc)
     try:
-        parsed = datetime.fromisoformat(raw)
+        parsed = datetime.fromisoformat(raw.replace(" ", "+"))
     except ValueError as exc:
         raise HTTPException(status_code=400, detail="bad now") from exc
     if parsed.tzinfo is None:

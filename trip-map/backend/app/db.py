@@ -94,6 +94,7 @@ def get_pool() -> ConnectionPool:
             conninfo=normalize_db_url(dsn),
             min_size=1,
             max_size=5,
+            open=True,
             kwargs={"autocommit": True, "row_factory": dict_row},
         )
     return _pool
