@@ -1,0 +1,30 @@
+# Blueprint for Where are Aifert & Hogan.
+# Apply from the repo that contains this file as the service root.
+# Fallback (Aifert/Aifert): set Root Directory to trip-map.
+
+databases:
+  - name: trip-map-db
+    plan: basic-256mb
+    databaseName: tripmap
+    postgresMajorVersion: "16"
+    region: singapore
+
+services:
+  - type: web
+    name: where-are-aifert-and-hogan
+    runtime: docker
+    plan: starter
+    region: singapore
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/health
+    autoDeployTrigger: commit
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: trip-map-db
+          property: connectionString
+      - key: APP_PASSWORD
+        sync: false
+      - key: SESSION_SECRET
+        generateValue: true

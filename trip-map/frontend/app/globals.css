@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  height: 100%;
+  background: #1b1410;
+  color: #f4efe4;
+}
+
+.leaflet-container {
+  background: #1c2a24;
+  font-family: Outfit, system-ui, sans-serif;
+}
+
+.flight-arc {
+  stroke-dasharray: 10 14;
+  animation: dash-move 28s linear infinite;
+}
+
+.ground-line.to-book,
+.flight-arc.to-book {
+  stroke-dasharray: 5 9;
+}
+
+@keyframes dash-move {
+  to {
+    stroke-dashoffset: -400;
+  }
+}
+
+.stop-pin {
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 12px;
+  color: #fff;
+  background: var(--c, #c23b22);
+  border: 2px solid #f4efe4;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+.photo-pin {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid #f4efe4;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+.photo-pin img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.leaflet-control-attribution {
+  font-size: 10px !important;
+  background: rgba(27, 20, 16, 0.65) !important;
+  color: #e7d7b8 !important;
+}
+
+input[type="range"] {
+  accent-color: #c46a2c;
+}
