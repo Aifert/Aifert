@@ -88,8 +88,8 @@ export default function MapView({
       zoomControl={false}
     >
       <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>'
-        url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
+        attribution='Tiles &copy; Esri &mdash; OSM, USGS, and others'
+        url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}"
       />
       {focus ? <FlyTo lat={focus.lat} lng={focus.lng} /> : null}
       {legs.map((leg) => {

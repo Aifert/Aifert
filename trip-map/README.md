@@ -3,6 +3,10 @@
 Password-gated adventure map for the Nov 2026–Jan 2027 trip. One FastAPI
 process serves `/api` and the static Next.js export.
 
+Map tiles are Esri World Street Map (no API key). CARTO Voyager/dark now
+return watermark-only “API KEY REQUIRED” tiles without a Carto key, so
+they are not used.
+
 ## Render deploy (exact settings)
 
 Create from this Blueprint:
